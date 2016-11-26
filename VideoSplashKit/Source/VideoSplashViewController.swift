@@ -16,7 +16,7 @@ public enum ScalingMode {
     case resizeAspectFill
 }
 
-public class VideoSplashViewController: UIViewController {
+open class VideoSplashViewController: UIViewController {
     
     private let moviePlayer = AVPlayerViewController()
     private var moviePlayerSoundLevel: Float = 1.0
@@ -69,7 +69,7 @@ public class VideoSplashViewController: UIViewController {
         }
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         moviePlayer.view.frame = videoFrame
         moviePlayer.view.backgroundColor = self.backgroundColor;
@@ -90,7 +90,7 @@ public class VideoSplashViewController: UIViewController {
         }
     }
     
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         guard let player = object as? AVPlayer else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
